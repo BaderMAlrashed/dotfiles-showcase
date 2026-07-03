@@ -1,0 +1,52 @@
+* {
+    /* Slightly lighter than pure black to create depth against dark apps */
+    bg: rgba(30, 30, 30, 0.7); 
+    bg-selected: rgba(255, 255, 255, 0.1); /* Subtle highlight */
+    fg: #ffffff;
+    accent: #33ccff; /* A clean blue accent for the border */
+    
+    background-color: transparent;
+    text-color: @fg;
+    font: "monospace 12"; 
+}
+
+window {
+    background-color: @bg;
+    border: 1px;
+    border-color: @accent; /* This thin line creates the "pop" */
+    border-radius: 10px;
+    width: 40%;
+    padding: 15px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    margin: 0 0 10px 0;
+    padding: 10px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @accent;
+    margin: 0 10px 0 0;
+}
+
+listview {
+    lines: 5;
+    fixed-height: false;
+}
+
+element {
+    padding: 10px;
+    border-radius: 4px;
+}
+
+element selected {
+    background-color: @bg-selected;
+    text-color: @accent;
+}

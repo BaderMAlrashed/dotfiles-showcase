@@ -1,0 +1,119 @@
+* {
+  font-family: "JetBrains Mono", "Noto Sans", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+}
+window#waybar {
+  background: rgba(20, 20, 20, 0.72);
+  color: #eaeaea;
+}
+/* --- Workspaces --- */
+#workspaces button {
+  margin: 4px 2px;
+  padding: 0 8px;
+  border-radius: 6px;
+  color: #888888;
+  transition: all 0.2s ease;
+}
+#workspaces button.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+/* --- Modules Styling --- */
+#clock,
+#custom-updates,
+#custom-recorder,
+#idle_inhibitor,
+#custom-system,
+#language,
+#backlight,
+#pulseaudio,
+#network,
+#battery,
+#tray {
+  margin: 4px 2px;
+  padding: 0 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+/* Hovers */
+#clock:hover, #custom-updates:hover, #idle_inhibitor:hover,
+#custom-system:hover, #language:hover, #backlight:hover,
+#pulseaudio:hover, #network:hover, #battery:hover {
+  background: rgba(255, 255, 255, 0.10);
+}
+/* Specific Accent Colors */
+#custom-updates {
+  color: #fab387;
+}
+#idle_inhibitor.activated {
+  color: #f9e2af;
+}
+#pulseaudio.microphone-muted {
+  color: #f38ba8;
+}
+#battery.charging { color: #a6e3a1; }
+#battery.warning  { color: #f9e2af; }
+#battery.critical:not(.charging) {
+  color: #f38ba8;
+  animation: blink 0.5s linear infinite alternate;
+}
+/* --- Recorder Indicator --- */
+#custom-recorder {
+  color: #f38ba8;
+  background: rgba(243, 139, 168, 0.12);
+  border-radius: 6px;
+  padding: 0 10px;
+  animation: blink 1s ease-in-out infinite alternate;
+}
+/* --- Keyframes --- */
+@keyframes blink {
+  to { opacity: 0.5; }
+}
+/* --- Tooltips --- */
+tooltip {
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+tooltip label {
+  font-family: "JetBrains Mono", monospace;
+  padding: 8px;
+}
+/* ── Add to your waybar style.css ─────────────────────────────────────────
+   Paste this block anywhere in the file.
+   Colors match your existing clock/waybar aesthetic.              */
+
+#custom-khal {
+    color: #ecc6d9;
+    padding: 0 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+/* An Islamic event is happening TODAY */
+#custom-khal.event-today {
+    color: #ff6699;
+    font-weight: bold;
+    background: rgba(255, 102, 153, 0.12);
+    border: 1px solid rgba(255, 102, 153, 0.3);
+}
+
+/* Event is within 3 days */
+#custom-khal.event-soon {
+    color: #ffcc66;
+    background: rgba(255, 204, 102, 0.08);
+}
+
+/* Event is coming but not urgent */
+#custom-khal.event-upcoming {
+    color: #ecc6d9;
+}
+
+/* No events in lookahead window */
+#custom-khal.normal {
+    color: #ecc6d9;
+    opacity: 0.8;
+}
