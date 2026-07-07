@@ -1,0 +1,169 @@
+@define-color base #141414;
+@define-color surface0 #242424;
+@define-color surface1 #383838;
+@define-color text #eaeaea;
+@define-color subtext #b0b0b0;
+@define-color overlay #888888;
+@define-color blue #33ccff;
+
+* {
+  font-family: "JetBrains Mono", "Noto Sans", monospace;
+  font-size: 13px;
+}
+
+.control-center,
+.floating-notifications {
+  background: transparent;
+}
+
+.notification-row {
+  outline: none;
+}
+
+.notification {
+  background: alpha(@base, 0.85);
+  color: @text;
+  border: 1px solid @surface1;
+  border-radius: 12px;
+  padding: 8px;
+  margin: 6px 12px;
+}
+
+.notification-content {
+  padding: 4px;
+}
+
+.notification .summary {
+  color: @text;
+  font-weight: bold;
+  font-size: 115%;
+}
+
+.notification .body {
+  color: @subtext;
+}
+
+.notification .time {
+  color: @overlay;
+}
+
+.close-button {
+  background: @surface0;
+  color: @text;
+  border-radius: 8px;
+}
+
+.close-button:hover {
+  background: @blue;
+  color: @base;
+}
+
+.control-center {
+  background: alpha(@base, 0.85);
+  border: 1px solid @surface1;
+  border-radius: 12px;
+  color: @text;
+}
+
+.widget-title {
+  color: @text;
+  font-weight: bold;
+  font-size: 120%;
+  padding: 12px;
+}
+
+.widget-title > button {
+  background: @surface0;
+  color: @text;
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+
+.widget-title > button:hover {
+  background: @blue;
+  color: @base;
+}
+
+.widget-dnd {
+  padding: 8px 12px;
+  color: @text;
+}
+
+.widget-dnd > switch {
+  background: @surface0;
+  border-radius: 12px;
+}
+
+.widget-dnd > switch:checked {
+  background: @blue;
+}
+
+.widget-buttons-grid {
+  padding: 8px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: @surface0;
+  color: @text;
+  border: 1px solid @surface1;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 4px;
+  transition: all 0.15s ease;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @blue;
+  color: @base;
+  border-color: @blue;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+  background: @surface1;
+  border-color: @blue;
+  color: @blue;
+}
+
+.widget-label,
+.widget-backlight,
+.widget-volume {
+  background: @surface0;
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin: 6px;
+  color: @text;
+}
+
+.widget-label {
+  font-family: monospace;
+  font-size: 95%;
+  color: @subtext;
+}
+
+.widget-backlight > label,
+.widget-volume > label {
+  color: @subtext;
+}
+
+scale trough {
+  background: @surface1;
+  border-radius: 6px;
+}
+
+scale trough highlight {
+  background: @blue;
+  border-radius: 6px;
+}
+
+scale slider {
+  background: @text;
+  border-radius: 50%;
+}
+
+.widget-mpris {
+  background: @surface0;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 6px;
+  color: @text;
+}

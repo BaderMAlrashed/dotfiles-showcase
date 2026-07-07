@@ -10,10 +10,6 @@ sudo pacman -Syu
 # yay -Sua
 
 echo "--- Update Complete ---"
-echo "Refreshing Waybar..."
-
-# Send signal 8 to Waybar to refresh the custom/updates module
-pkill -RTMIN+8 waybar
 
 # Keep the terminal open for a second so you can see the result
 sleep 2

@@ -12,7 +12,7 @@ below for why.
 | `hyprland` | Window manager: keybinds, window rules, input, monitors |
 | `waybar`   | Status bar, including a custom Hijri calendar module    |
 | `rofi`     | Quick-capture menu (dmenu-style, not the app launcher — that's `fuzzel`) |
-| `mako`     | Notification daemon styling                             |
+| `swaync`   | Notification daemon + a control center with live system stats |
 | `foot`     | Terminal emulator config                                |
 
 Managed with [GNU Stow](https://www.gnu.org/software/stow/) — each folder
@@ -31,6 +31,10 @@ mirrors its target path under `$HOME`.
 - **Quick-capture workflow**: a rofi-driven script (in the private/full
   dotfiles, not included here) for logging notes/ideas/media without
   breaking flow, tagged with the active window's context.
+- **Control center with live system stats**: `swaync`'s panel is regenerated
+  from a template (`refresh-panel.sh`) on every open, showing current CPU/RAM/
+  temp, pending pacman updates, and dotfiles sync status as clickable buttons
+  — not static config, actually queried each time.
 
 ## About this repo
 

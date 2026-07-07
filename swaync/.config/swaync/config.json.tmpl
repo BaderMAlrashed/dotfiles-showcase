@@ -1,0 +1,83 @@
+{
+  "positionX": "left",
+  "positionY": "top",
+  "control-center-positionX": "left",
+  "control-center-positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "layer-shell": true,
+  "control-center-margin-top": 10,
+  "control-center-margin-bottom": 10,
+  "control-center-margin-right": 10,
+  "control-center-margin-left": 10,
+  "control-center-width": 380,
+  "control-center-height": 600,
+  "notification-window-width": 360,
+  "notification-icon-size": 48,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+  "timeout": 5,
+  "timeout-low": 3,
+  "timeout-critical": 0,
+  "fit-to-screen": true,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "hide-on-action": true,
+  "script-fail-notify": true,
+  "widgets": [
+    "title",
+    "dnd",
+    "label",
+    "backlight",
+    "volume",
+    "buttons-grid",
+    "notifications"
+  ],
+  "widget-config": {
+    "notifications": {},
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear All"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "label": {
+      "text": "${sys_stats}",
+      "max-lines": 2
+    },
+    "backlight": {
+      "label": "Brightness",
+      "device": "intel_backlight"
+    },
+    "volume": {
+      "label": "Volume"
+    },
+    "buttons-grid": {
+      "buttons-per-row": 2,
+      "actions": [
+        {
+          "label": "󰚰  ${updates_label}",
+          "command": "foot --title 'System Update' sh -c '~/.config/waybar/scripts/sys-update.sh'"
+        },
+        {
+          "label": "󰊢  ${dotfiles_label}",
+          "command": "foot --title 'Dotfiles Sync' sh -c '~/.config/waybar/scripts/dotfiles-sync.sh'"
+        },
+        {
+          "label": "󰍛  Detailed Monitor",
+          "command": "foot -e btop"
+        },
+        {
+          "label": "${mic_icon}  Toggle Mic",
+          "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+          "type": "toggle",
+          "update-command": "pactl get-source-mute @DEFAULT_SOURCE@ | grep -q yes && echo true || echo false"
+        }
+      ]
+    }
+  }
+}

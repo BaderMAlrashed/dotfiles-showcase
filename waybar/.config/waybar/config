@@ -6,27 +6,20 @@
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock", "custom/khal", "custom/recorder"],
   "modules-right": [
-    "custom/updates",
     "idle_inhibitor",
-    "custom/system",
     "hyprland/language",
-    "backlight",
     "pulseaudio",
-    "pulseaudio#microphone",
     "network",
     "battery",
-    "tray"
+    "tray",
+    "custom/control-center",
+    "custom/keybinds"
   ],
 
   "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
-    "format": "{icon}",
-    "format-icons": {
-      "default": "",
-      "active": "",
-      "urgent": ""
-    }
+    "format": "{id}"
   },
 
   "clock": {
@@ -61,15 +54,6 @@
     "tooltip": true
 },
 
-"custom/updates": {
-    "format": "󰚰 {}",
-    "interval": 3600,
-    "exec": "checkupdates | wc -l",
-    "exec-if": "exit 0",
-    "on-click": "foot --title 'System Update' sh -c '~/.config/waybar/scripts/sys-update.sh'",
-    "signal": 8
-},
-
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -81,13 +65,8 @@
   "hyprland/language": {
     "format": "  {}",
     "format-en": "EN",
-    "format-ar": "AR"
-  },
-
-  "backlight": {
-    "format": "{icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
-    "tooltip-format": "Brightness: {percent}%"
+    "format-ar": "AR",
+    "on-click": "hyprctl switchxkblayout $(hyprctl devices -j | jq -r '.keyboards[] | select(.main==true) | .name') next"
   },
 
   "battery": {
@@ -116,25 +95,15 @@
     "on-click-right": "pavucontrol"
   },
 
-  "pulseaudio#microphone": {
-    "format": "{format_source}",
-    "format-source": "",
-    "format-source-muted": "",
-    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
-    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%"
-  },
-
-  "custom/system": {
-    "exec": "~/.config/waybar/scripts/system-info.sh",
-    "interval": 5,
-    "return-type": "json",
-    "on-click": "foot -e btop"
-  },
-
   "tray": {
     "icon-size": 16,
     "spacing": 10
+  },
+
+  "custom/control-center": {
+    "format": "",
+    "tooltip-format": "Control Center (notifications, DND, brightness, volume, updates, dotfiles, mic)",
+    "on-click": "~/.config/swaync/scripts/refresh-panel.sh"
   },
 
   "custom/recorder": {
@@ -144,4 +113,10 @@
     "interval": 2,
     "tooltip": false
 },
+
+  "custom/keybinds": {
+    "format": "󰌌",
+    "tooltip-format": "Show all Hyprland keybinds (SUPER + /)",
+    "on-click": "~/.local/bin/keybind-cheatsheet.sh"
+  },
 }
