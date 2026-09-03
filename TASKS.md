@@ -1,6 +1,6 @@
 # dotfiles-showcase — open tasks
 
-NEXT: review this project — extract publishable parts, update docs to current format.
+NEXT: Bmar confirms the project's purpose — portfolio piece (linked from a CV/channel) vs private staging copy. That decides whether it has a "next" at all.
 
 Grammar: `~/lifeos/SYSTEM.md` todo.txt. Top line above is what `hm status` prints.
 
