@@ -1,6 +1,6 @@
 # dotfiles-showcase — open tasks
 
-NEXT: Bmar confirms the project's purpose — portfolio piece (linked from a CV/channel) vs private staging copy. That decides whether it has a "next" at all.
+NEXT: refresh pass so the snapshot matches the current dotfiles, then push. (Purpose settled 2026-09-03: deliberate portfolio piece / Linux signal. CV link decision is get-job's, filed in todo.txt.)
 
 Grammar: `~/lifeos/SYSTEM.md` todo.txt. Top line above is what `hm status` prints.
 

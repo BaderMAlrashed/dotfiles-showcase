@@ -18,17 +18,21 @@ status: paused
 
 ## Status
 
-**Status:** paused. A maintain-on-demand snapshot, not active development. The
-registry line is a guess ("public config showcase (guess — correct me)").
+**Status:** paused. A maintain-on-demand snapshot, not active development.
 
-**Blocker:** None mechanical. Open question: is this a real portfolio piece Bmar
-wants to push (linked from a CV or a channel), or just a private staging copy? That
-decides whether it has a "next" at all.
+**Purpose (decided 2026-09-03, portfolio review):** a **deliberate portfolio
+artifact** — a Linux-proficiency signal for the job search (the RHCSA competency
+minus the cert). It is the one public repo under Bmar's real name. Demonstrates:
+stow-managed config discipline, a bilingual EN/AR desktop configured at the
+XKB/WM level, and a custom Hijri-calendar waybar module.
+
+**Blocker:** None. Open: (a) a refresh pass so it matches the current setup,
+(b) whether it earns a line on the CV / LinkedIn — a `get-job` decision, filed in
+`todo.txt` as `+get-job`.
 
 ## Signature decisions pending
 
-- Whether it's a deliberate portfolio artifact or incidental. If portfolio:
-  what it's meant to demonstrate and where it gets linked.
+- Whether it earns a CV / LinkedIn line (owned by `get-job`).
 
 ## Related docs
 
@@ -37,5 +41,5 @@ decides whether it has a "next" at all.
 
 ## Next checkpoint
 
-Bmar confirms the project's purpose (portfolio vs staging). If portfolio: a
-refresh pass + decide the link target.
+A refresh pass so the snapshot matches the live config, then push. The CV/LinkedIn
+link decision sits with `get-job`.
