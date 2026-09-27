@@ -2,6 +2,8 @@
 name: dotfiles-showcase
 type: portfolio / config showcase
 status: paused
+window: —
+placed: partial (public repo)
 ---
 
 # dotfiles-showcase — Current state
