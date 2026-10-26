@@ -1,3 +1,6 @@
 
 # Session devlogs — local only, never committed
 devlog/
+
+# Python bytecode from running the scripts and tests
+__pycache__/
