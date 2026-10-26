@@ -39,6 +39,7 @@ sys_stats="CPU ${cpu}%   MEM ${mem_used}/${mem_total}   TEMP ${temp_c}°C"
 # checkupdates exits 0 = updates listed, 2 = none, anything else = failed
 # (offline, lock held). On failure the old cache is kept, never replaced by 0.
 updates_count=$(cat "$UPDATES_CACHE" 2>/dev/null || true)
+# shellcheck disable=SC2016  # single quotes on purpose: the inner shell expands $1
 setsid bash -c '
   list=$(checkupdates 2>/dev/null); rc=$?
   case $rc in

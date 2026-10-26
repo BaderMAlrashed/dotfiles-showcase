@@ -5,7 +5,8 @@
 
 import json
 import subprocess
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
+
 from hijridate import Gregorian
 
 CALENDARS = ["islamic", "saudi"]
@@ -68,8 +69,6 @@ def parse_date(s):
 
 def get_events():
     today = date.today()
-    end = today + timedelta(days=LOOKAHEAD_DAYS)
-    end_str = end.strftime("%d/%m/%Y")
 
     args = ["khal", "list",
             "--include-calendar", "islamic",
@@ -78,7 +77,7 @@ def get_events():
             "today", f"{LOOKAHEAD_DAYS}d"]
     try:
         out = subprocess.check_output(args, stderr=subprocess.DEVNULL, text=True)
-    except Exception:
+    except (subprocess.CalledProcessError, OSError):  # khal failed or missing
         return []
 
     events = []
@@ -125,9 +124,8 @@ def main():
 
     text = f"🌙 {hijri}{next_str}"
 
-    # Tooltip: next 7 events
+    # Tooltip: next 8 events
     tooltip_lines = [f"<b>{hijri}</b>", ""]
-    today = date.today()
     seen = set()
     count = 0
     for days_away, short, full, edate in events:
