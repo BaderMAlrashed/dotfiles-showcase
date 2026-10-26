@@ -43,6 +43,15 @@ class GetEvents(unittest.TestCase):
     def test_unparseable_date_is_skipped(self):
         self.assertEqual(self.events_for(khal_output("Ramadan|||soon")), [])
 
+    def test_calendars_constant_drives_khal_args(self):
+        with mock.patch.object(kw.subprocess, "check_output",
+                               return_value="") as run:
+            kw.get_events()
+        args = run.call_args.args[0]
+        self.assertEqual(
+            [args[i + 1] for i, a in enumerate(args) if a == "--include-calendar"],
+            kw.CALENDARS)
+
     def test_khal_missing_gives_no_events(self):
         with mock.patch.object(kw.subprocess, "check_output",
                                side_effect=FileNotFoundError):

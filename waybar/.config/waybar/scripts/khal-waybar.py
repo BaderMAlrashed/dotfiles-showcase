@@ -70,10 +70,10 @@ def parse_date(s):
 def get_events():
     today = date.today()
 
-    args = ["khal", "list",
-            "--include-calendar", "islamic",
-            "--include-calendar", "saudi",
-            "--format", "{title}|||{start-date}",
+    args = ["khal", "list"]
+    for cal in CALENDARS:
+        args += ["--include-calendar", cal]
+    args += ["--format", "{title}|||{start-date}",
             "today", f"{LOOKAHEAD_DAYS}d"]
     try:
         out = subprocess.check_output(args, stderr=subprocess.DEVNULL, text=True)
