@@ -5,7 +5,7 @@
 
 import json
 import subprocess
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from hijridate import Gregorian
 
 CALENDARS = ["islamic", "saudi"]
@@ -28,6 +28,11 @@ SHORTNAMES = {
 }
 
 def shorten(name):
+    # Before the table: its plain "Ramadan" entry would match these too.
+    if "Ramadan" in name and "begins" in name:
+        return "Ramadan begins"
+    if "Ramadan" in name and "full month" in name:
+        return None  # skip the span event, show the "begins" one
     for k, v in SHORTNAMES.items():
         if k.lower() in name.lower():
             return v
@@ -36,10 +41,6 @@ def shorten(name):
         return "White Day fast"
     if "Recommended fast" in name:
         return "Arafah fast" if "Dhul Hijjah" in name else "Recommended fast"
-    if "Ramadan" in name and "begins" in name:
-        return "Ramadan begins"
-    if "Ramadan" in name and "full month" in name:
-        return None  # skip the span event, show the "begins" one
     if "Dhul Hijjah - first 10" in name:
         return "First 10 Dhul Hijjah"
     if "Hajj:" in name:
@@ -52,6 +53,18 @@ def get_hijri():
     today = date.today()
     h = Gregorian(today.year, today.month, today.day).to_hijri()
     return f"{h.day} {h.month_name('en')} {h.year}"
+
+# khal prints {start-date} in its configured `dateformat`; ISO and the
+# day-first format used in this setup's khal config are both accepted.
+DATE_FORMATS = ["%Y-%m-%d", "%d/%m/%Y"]
+
+def parse_date(s):
+    for fmt in DATE_FORMATS:
+        try:
+            return datetime.strptime(s, fmt).date()
+        except ValueError:
+            pass
+    return None
 
 def get_events():
     today = date.today()
@@ -81,9 +94,8 @@ def get_events():
         short = shorten(title)
         if short is None:
             continue
-        try:
-            d = date.fromisoformat(date_str)
-        except Exception:
+        d = parse_date(date_str)
+        if d is None:
             continue
         days_away = (d - today).days
         events.append((days_away, short, title, d))
