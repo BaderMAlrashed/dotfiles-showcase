@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 # ~/.config/waybar/scripts/khal-notify.fish
-# Send a mako notification with today's Islamic/Saudi events
+# Send a desktop notification (swaync) with today's Islamic/Saudi events
 # Run via systemd timer at startup and daily at 07:00
 
 set today (date +"%d/%m/%Y")
