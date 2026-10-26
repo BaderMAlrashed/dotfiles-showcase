@@ -22,6 +22,8 @@ placed: partial (public repo)
 
 **Status:** paused. A maintain-on-demand snapshot, not active development.
 
+**Audit 2026-10-26:** branch `audit/2026-10-23` — Hijri module bugs fixed with tests, lint at zero, forks in `TASKS.md`.
+
 **Purpose (decided 2026-09-03, portfolio review):** a **deliberate portfolio
 artifact** — a Linux-proficiency signal for the job search (the RHCSA competency
 minus the cert). It is the one public repo under Bmar's real name. Demonstrates:

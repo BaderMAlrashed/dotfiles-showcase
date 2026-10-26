@@ -1,11 +1,10 @@
-# dotfiles-showcase — open tasks
-
-NEXT: refresh pass so the snapshot matches the current dotfiles, then push. (Purpose settled 2026-09-03: deliberate portfolio piece / Linux signal. CV link decision is get-job's, filed in todo.txt.)
-
-Grammar: `~/lifeos/SYSTEM.md` todo.txt. Top line above is what `hm status` prints.
-
----
-
-## Open
-
+- (B) 2026-09-03 refresh pass so the snapshot matches the current dotfiles (live Hyprland is Lua now; see ARCHITECTURE.md latent issues), then push
 - (C) 2026-09-01 review this project — run `/review-project dotfiles-showcase`, extract findings to the content backlog, update ARCHITECTURE.md/README.md to current format
+- (C) 2026-10-26 audit fork: what this public repo exposes (commit author identity, the project records themselves; details in the audit report, not here). Leave as is, untrack the records going forward, or rewrite history and force-push (his call only)
+- (C) 2026-10-26 audit fork: `keybind-cheatsheet.sh` sits in waybar/scripts but is called as `~/.local/bin/…`. Move it to a `scripts/.local/bin/` package (as live) or point both callers at the waybar path
+- (C) 2026-10-26 audit fork: `refresh-panel.sh` and `dotfiles-sync.sh` hard-code `~/.dotfiles`. Derive the template path from the script's own location, or state in README that they only work in the private setup
+- (C) 2026-10-26 audit fork: volume/brightness bound twice in keybinds.conf (96-99, 109-117). Drop one block, or let the Lua refresh replace the file
+- (C) 2026-10-26 audit fork: README says machine-specific details are left out, yet eDP-1, intel_backlight, x86_pkg_temp and ThinkPad keys are in. Mark them as sample hardware, generalise them, or reword the claim; add a dependency list (khal, hijridate, envsubst, checkupdates, pactl…) or not
+- (C) 2026-10-26 audit, Signature: what the refreshed showcase includes and how the README presents it (it names a Noto Kufi font stack and `ar_SA` locale that no file here shows)
+- (C) 2026-10-26 port audit fixes 4e39578, 4ac5bab, 1f2e5d4 (khal-waybar.py date and Ramadan bugs, lint) to ~/.dotfiles: the live copy has the same bugs
+- (B) 2026-10-26 merge or drop the audit/2026-10-23 branch (git log --oneline main..audit/2026-10-23; summary in ~/projects/AUDIT-2026-10-23.md)

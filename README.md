@@ -15,8 +15,8 @@ below for why.
 | `swaync`   | Notification daemon + a control center with live system stats |
 | `foot`     | Terminal emulator config                                |
 
-Managed with [GNU Stow](https://www.gnu.org/software/stow/) — each folder
-mirrors its target path under `$HOME`.
+Managed with [GNU Stow](https://www.gnu.org/software/stow/) — each package
+folder mirrors its target path under `$HOME` (`tests/` is not a package).
 
 ## Notable features
 
